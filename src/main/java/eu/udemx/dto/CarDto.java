@@ -1,11 +1,17 @@
 package eu.udemx.dto;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import java.time.LocalDateTime;
+
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Data
+@JsonSerialize
 public class CarDto {
     private Integer id;
 
