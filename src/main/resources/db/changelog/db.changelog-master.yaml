@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - changeSet:
+      id: init
+      author: janos.hipszki
+  - include:
+      file: db/changelog/cars.sql
