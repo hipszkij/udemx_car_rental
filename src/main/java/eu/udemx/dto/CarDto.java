@@ -1,19 +1,13 @@
 package eu.udemx.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@Data
 @JsonSerialize
 public class CarDto {
-    private Integer id;
+    private Long id;
 
     private Boolean status;
 
@@ -32,5 +26,69 @@ public class CarDto {
     private Integer price;
 
     private LocalDateTime createdAt;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 }
 

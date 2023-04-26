@@ -1,38 +1,41 @@
-package eu.udemx.dto;
+package eu.udemx.domain;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@JsonSerialize
-public class ReservationDto {
+@Entity
+@Table(name = "reservations")
+public class ReservationDomain {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
-
-    @NotEmpty(message = "Car ID is required.")
+    @Column(name = "car_id", nullable = false)
     private Integer carId;
 
-    @NotEmpty(message = "Username is required.")
+    @Column(name = "user_name", nullable = false, length = 64)
     private String userName;
 
-    @NotEmpty(message = "User e-mail is required.")
+    @Column(name = "user_email", nullable = false, length = 32)
     private String userEmail;
 
-    @NotEmpty(message = "User phone number is required.")
+    @Column(name = "user_mobile", nullable = false, length = 16)
     private String userMobile;
 
-    @NotEmpty(message = "User address is required.")
+    @Column(name = "user_address", nullable = false, length = 64)
     private String userAddress;
 
-    @NotEmpty(message = "Reservation start date is required.")
+    @Column(name = "start_date", nullable = false)
     private Date startDate;
 
-    @NotEmpty(message = "Reservation end date is required.")
+    @Column(name = "end_date", nullable = false)
     private Date endDate;
 
+    @Column(name = "description", length = 128)
     private String description;
 
+    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT now()")
     private LocalDateTime createdAt;
 
     public Long getId() {
